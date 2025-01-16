@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.26
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
@@ -17,7 +17,7 @@ services:
       - esdata:/usr/share/elasticsearch/data
 
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.10.1
+    image: docker.elastic.co/logstash/logstash:7.17.26
     container_name: logstash
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
@@ -29,7 +29,7 @@ services:
                    output { stdout { codec => rubydebug } }"
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.10.1
+    image: docker.elastic.co/kibana/kibana:7.17.26
     container_name: kibana
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9201

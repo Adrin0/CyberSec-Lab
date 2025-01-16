@@ -53,8 +53,8 @@ Key goals include:
 - This central management server is used to configure the other machines and test the DVWA-Vuln machine. It generates logs and performs various security assessments
 
 ### Network Setup
-- **Internal Network (10.0.2.0/24):** All VMs are connected to a private network for secure communication.
-- **NAT Adapter:(192.168.56.0/24)** Provides internet access for downloading dependencies. Only necessary ports are exposed to the NAT network using UFW.
+- **Internal Network (192.168.56.0/24):** All VMs are connected to a private network for secure communication.
+- **NAT Adapter (10.0.2.0/24):** Provides internet access for downloading dependencies. Only necessary ports are exposed to the NAT network using UFW.
 
 ![Architecture Diagram](./img/architecture-diagram.png)
 
@@ -102,11 +102,9 @@ Key goals include:
     docker-compose up -d
 
 - Access:`http://<ELK_VM_IP>:5602`
+
 ![Homepage Screenshot](./img/homepage-screenshot.png)
 
-3. Turn off containers: 
-    ```bash
-    docker-compose down
 
 ### Step 2: Set Up DVWA-Vuln VM
 
@@ -115,6 +113,9 @@ Key goals include:
 
 2. Verify Functionality:
 - Access: `http://<DVWA-IP>/dvwa`
+
+![DVWA Screenshot](./img/dvwa-screenshot.png)
+
 - Test Beats outputs
     ```bash
     sudo filebeat test output
