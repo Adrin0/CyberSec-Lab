@@ -76,11 +76,3 @@
     sudo packetbeat setup --dashboards
     sudo metricbeat setup --dashboards
 
-8. Configure UFW rules:
-    ```bash
-    sudo ufw allow from 192.168.56.0/24 to any port 22  # SSH
-    sudo ufw allow from 192.168.56.0/24 to any port 80  # HTTP for DVWA
-    sudo ufw default deny incoming
-    sudo ufw default allow outgoing
-    sudo ufw enable
-
